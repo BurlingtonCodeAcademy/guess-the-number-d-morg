@@ -23,7 +23,7 @@ function randomInteger(min, max) {
   return min + Math.floor(Math.random() * range);
 } //function to allow computer to pick a random number
 
-let game2 = async function(){
+let game2 = async function () {
   console.log(
     "\nLet's play a game where you (human) make up a number and I (computer) try to guess it."
   );
@@ -72,11 +72,11 @@ let game2 = async function(){
       }
       //^cheat detection for when the user tries to go higher than the max range^
     } else if (nextQuestion === "h" || nextQuestion === "H") {
-      min = number+1;
+      min = number + 1;
       number = educatedGuess(min, max);
       guess = await ask(`Was your number ${number}? Y or N \n`);
     } else if (nextQuestion === "l" || nextQuestion === "L") {
-      max = number-1;
+      max = number - 1;
       number = educatedGuess(min, max);
       guess = await ask(`Was your number ${number}? Y or N \n`);
     } //Asking user high or lower to reassign ends of the range.
@@ -94,12 +94,13 @@ let game2 = async function(){
       start();
     } else process.exit();
   } //^final if statement with another else for when the correct number is guessed. computer gloats and inquires for another round.^
- else {
-  console.log("hmm this doesn't look quite right...");
-  start(); //^a catch all for if an unrecognized input is entered. program will restart. ^
-}} //game function for letting user choose the number and computer tries to guess it.
+  else {
+    console.log("hmm this doesn't look quite right...");
+    start(); //^a catch all for if an unrecognized input is entered. program will restart. ^
+  }
+}; //game function for letting user choose the number and computer tries to guess it.
 
-let game1 = async function(){
+let game1 = async function () {
   let computerNumber = randomInteger(1, 100);
 
   console.log(
@@ -129,7 +130,8 @@ let game1 = async function(){
         start();
       } else process.exit();
     } //while loop to reiterate the asking process until the user guesses the correct number.
-  }} //game function for letting user guess computers number
+  }
+}; //game function for letting user guess computers number
 
 async function start() {
   console.log("\n\nHello, would you want to do the guessing or shall I?\n");
@@ -138,11 +140,11 @@ async function start() {
   );
   gameSelection = gameSelection.toUpperCase();
   if (gameSelection === "ME") {
-    game1()
-  } else if (gameSelection === "YOU"){ 
-    game2()
-} else {
-  console.log("hmm this doesn't look quite right...");
-  start(); //^a catch all for if an unrecognized input is entered. program will restart. ^
-}
+    game1();
+  } else if (gameSelection === "YOU") {
+    game2();
+  } else {
+    console.log("hmm this doesn't look quite right...");
+    start(); //^a catch all for if an unrecognized input is entered. program will restart. ^
+  }
 }
