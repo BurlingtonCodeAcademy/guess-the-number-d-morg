@@ -55,7 +55,7 @@ async function start() {
         );
         playAgain = playAgain.toUpperCase();
         if (playAgain === "Y") {
-          userGuessCounter = 1;
+          userGuessCounter = 0;
           start();
         } else process.exit();
       } //while loop to reiterate the asking process until the user guesses the correct number.
@@ -65,7 +65,7 @@ async function start() {
       "\nLet's play a game where you (human) make up a number and I (computer) try to guess it."
     );
     max = await ask(
-      "What do you want the high range to be? You can chose anything above 1!\n"
+      "What do you want the high end of the range to be? You can chose anything above 1!\n"
     );
     console.log(`You set the high range to be: ${max}\n`);
     max = parseInt(max); //assigns max to user input and turns that input into a number
