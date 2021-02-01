@@ -14,7 +14,7 @@ function randomInteger(min, max) {
   return min + Math.floor(Math.random() * range);
 }//function to allow computer to pick a random number
 
-async function start() {
+let game2 = async function start() {
   let computerNumber = randomInteger(0, 100);
   console.log(computerNumber);
   console.log(
